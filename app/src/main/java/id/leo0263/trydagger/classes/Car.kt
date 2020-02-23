@@ -4,16 +4,18 @@ import android.util.Log
 
 
 class Car {
-    private val TAG = "Car"
+    private val TAG = "[L] Car......."
 
     init {
-        Log.d(TAG, "init")
+        Log.d(TAG, "init   [${this.hashCode()}]")
     }
 
     private val engine = Engine()
     private val wheels = Wheels()
 
     fun start() {
-        Log.d(TAG, "start!")
+        engine.check()
+        wheels.check()
+        Log.d(TAG, "start! [${this.hashCode()}]")
     }
 }
