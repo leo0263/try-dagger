@@ -1,8 +1,9 @@
 package id.leo0263.trydagger.classes
 
 import android.util.Log
+import javax.inject.Inject
 
-class Engine(
+class Engine @Inject constructor(
     private val gearbox: Gearbox,
     private val combustion: Combustion
 ) {

@@ -1,9 +1,10 @@
 package id.leo0263.trydagger.classes
 
 import android.util.Log
+import javax.inject.Inject
 
 
-class Car(
+class Car @Inject constructor(
     private val engine: Engine,
     private val wheels: Wheels
 ) {

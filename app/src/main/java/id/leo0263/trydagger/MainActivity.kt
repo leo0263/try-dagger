@@ -2,23 +2,24 @@ package id.leo0263.trydagger
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import id.leo0263.trydagger.classes.*
+import id.leo0263.trydagger.classes.Car
+import id.leo0263.trydagger.di.CarComponent
+import id.leo0263.trydagger.di.DaggerCarComponent
 
 class MainActivity : AppCompatActivity() {
+
+    lateinit var car1: Car
+    lateinit var car2: Car
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val gearbox = Gearbox()
-        val combustion = Combustion()
-        val engine = Engine(combustion = combustion, gearbox = gearbox)
-        val wheels = Wheels()
+        val component: CarComponent = DaggerCarComponent.create()
+        car1 = component.getCar()
+        car2 = component.getCar()
 
-        val car1 = Car(engine = engine, wheels = wheels)
         car1.start()
-
-        val car2 = Car(engine = engine, wheels = wheels)
         car2.start()
     }
 }

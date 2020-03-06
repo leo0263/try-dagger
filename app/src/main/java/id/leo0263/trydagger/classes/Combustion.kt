@@ -1,8 +1,9 @@
 package id.leo0263.trydagger.classes
 
 import android.util.Log
+import javax.inject.Inject
 
-class Combustion {
+class Combustion @Inject constructor() {
     private val TAG = "[L] Combustion"
 
     init {
